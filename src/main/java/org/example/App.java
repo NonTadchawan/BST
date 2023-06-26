@@ -1,10 +1,8 @@
 package org.example;
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        BinaryTree tree=new BinaryTree();
+public class App {
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
         tree.insert(3);
         tree.insert(6);
         tree.insert(1);
@@ -14,6 +12,7 @@ public class App
         tree.insert(14);
         tree.insert(4);
 
+        tree.searchByKey(9);
 
         tree.delete(3);
         tree.delete(6);

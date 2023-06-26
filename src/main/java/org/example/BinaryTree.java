@@ -11,7 +11,7 @@ public class BinaryTree {
         root = insertKey(root, key);
     }
 
-    public Node insertKey(Node node, int key) {
+    private Node insertKey(Node node, int key) {
         if (node == null) {
             node = new Node(key);
             return node;
@@ -28,7 +28,7 @@ public class BinaryTree {
         root = deleteKey(root, key);
     }
 
-    Node deleteKey(Node node, int key) {
+    private Node deleteKey(Node node, int key) {
         if (node == null) {
             return node;
         }
@@ -61,11 +61,30 @@ public class BinaryTree {
         searchByOder(root);
     }
 
-    void searchByOder(Node node) {
+    private void searchByOder(Node node) {
         if (node != null) {
             searchByOder(node.left);
             System.out.print(node.key + " ");
             searchByOder(node.right);
+        }
+    }
+
+    public void searchByKey(int key) {
+        searchKey(root, key);
+    }
+
+    private void searchKey(Node node, int key) {
+        if (node == null) {
+            System.out.println("Node not contain key: " + key);
+        } else {
+            if (key < node.key) {
+                searchKey(node.left, key);
+            } else if (key > node.key) {
+                searchKey(node.right, key);
+            }
+            if (node.key == key) {
+                System.out.println("Found node key: " + node.key);
+            }
         }
     }
 
