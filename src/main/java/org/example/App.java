@@ -11,13 +11,9 @@ public class App {
         tree.insert(5);
         tree.insert(14);
         tree.insert(4);
+        tree.insert(8);
+        tree.insert(15);
 
-        tree.searchByKey(9);
-
-        tree.delete(3);
-        tree.delete(6);
-        tree.delete(7);
-
-        tree.search();
+        tree.treeWalk(tree.root);
     }
 }
