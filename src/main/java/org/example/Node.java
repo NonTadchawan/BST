@@ -1,9 +1,8 @@
 package org.example;
 
 public class Node {
-    int key;
+    Integer key;
     Node left, right;
-
     public Node(int key) {
         this.key = key;
         left = right = null;

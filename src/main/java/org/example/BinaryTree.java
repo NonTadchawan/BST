@@ -87,32 +87,35 @@ public class BinaryTree {
             }
         }
     }
+
     int level = 0;
+
     public void treeWalk(Node node) {
 
         if (node == root) {
-            System.out.println(root.key);
+            System.out.println(" " + root.key + " level: " + level);
         }
         level = level + 1;
         if (node.left != null) {
             printPattern(level);
-            System.out.println(node.left.key);
+            System.out.println(node.left.key + " level: " + level);
             treeWalk(node.left);
             level = level - 1;
         }
         if (node.right != null) {
             printPattern(level);
-            System.out.println(node.right.key);
+            System.out.println(node.right.key + " level: " + level);
             treeWalk(node.right);
             level = level - 1;
         }
     }
+
     public void printPattern(int i) {
         for (int j = 0; j < i; j++) {
             System.out.print("  ");
         }
         for (int j = 0; j < i; j++) {
-            if(j==0){
+            if (j == 0) {
                 System.out.print("|");
             }
             System.out.print("_");

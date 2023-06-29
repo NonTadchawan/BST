@@ -1,19 +1,29 @@
 package org.example;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class App {
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
-        tree.insert(3);
-        tree.insert(6);
-        tree.insert(1);
-        tree.insert(2);
-        tree.insert(7);
-        tree.insert(5);
-        tree.insert(14);
-        tree.insert(4);
-        tree.insert(8);
-        tree.insert(15);
-
-        tree.treeWalk(tree.root);
+        BinaryTreeCanvas treeCanvas = new BinaryTreeCanvas();
+        JPanel top = new JPanel();
+        top.setLayout(new FlowLayout());
+        JTextField textField =new JTextField("set value here.");
+        top.add(textField);
+        JButton addButton = new JButton("Add");
+        addButton.addActionListener(e->{
+            int key = Integer.parseInt(textField.getText());
+            System.out.println(key);
+            treeCanvas.insert(key);
+            treeCanvas.repaint();
+        });
+        top.add(addButton);
+        JFrame frame = new JFrame();
+        frame.setLayout(new BorderLayout());
+        frame.getContentPane().add(top,BorderLayout.NORTH);
+        frame.getContentPane().add(treeCanvas,BorderLayout.CENTER);
+        frame.setSize(1500,1000);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
